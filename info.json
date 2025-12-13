@@ -1,0 +1,14 @@
+{
+  "name": "TurboBeltOnNauvis",
+  "version": "0.0.1",
+  "title": "Turbo Belt on Nauvis",
+  "author": "Stargateur",
+  "description": "Alternative recipe with uranium-238 to craft turbo belt on nauvis with special tech",
+  "factorio_version": "2.0",
+  "dependencies": [
+    "base",
+    "space-age",
+    "?aai-loaders",
+    "?deadlock-beltboxes-loaders"
+  ]
+}
