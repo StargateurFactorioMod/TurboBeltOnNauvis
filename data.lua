@@ -4,6 +4,18 @@ data:extend({
     name = "turbo-transport-belt-uranium",
     category = "crafting-with-fluid",
     enabled = false,
+    icons = {
+      {
+        icon = "__space-age__/graphics/icons/turbo-transport-belt.png",
+        icon_size = 64,
+      },
+      {
+        icon = "__base__/graphics/icons/uranium-238.png",
+        icon_size = 64,
+        scale = 1 / 4,
+        shift = { 8, 8 },
+      },
+    },
     ingredients =
     {
       { type = "item",  name = "uranium-238",            amount = 5 },
@@ -18,6 +30,18 @@ data:extend({
     category = "crafting-with-fluid",
     energy_required = 2,
     enabled = false,
+    icons = {
+      {
+        icon = "__space-age__/graphics/icons/turbo-underground-belt.png",
+        icon_size = 64,
+      },
+      {
+        icon = "__base__/graphics/icons/uranium-238.png",
+        icon_size = 64,
+        scale = 1 / 4,
+        shift = { 8, 8 },
+      },
+    },
     ingredients =
     {
       { type = "item",  name = "uranium-238",              amount = 40 },
@@ -32,6 +56,18 @@ data:extend({
     category = "crafting-with-fluid",
     enabled = false,
     energy_required = 2,
+    icons = {
+      {
+        icon = "__space-age__/graphics/icons/turbo-splitter.png",
+        icon_size = 64,
+      },
+      {
+        icon = "__base__/graphics/icons/uranium-238.png",
+        icon_size = 64,
+        scale = 1 / 4,
+        shift = { 8, 8 },
+      },
+    },
     ingredients =
     {
       { type = "item",  name = "express-splitter", amount = 1 },
@@ -47,6 +83,18 @@ data:extend({
     enabled = false,
     hidden = true,
     energy_required = 20,
+    icons = {
+      {
+        icon = "__space-age__/graphics/icons/turbo-loader.png",
+        icon_size = 64,
+      },
+      {
+        icon = "__base__/graphics/icons/uranium-238.png",
+        icon_size = 64,
+        scale = 1 / 4,
+        shift = { 8, 8 },
+      },
+    },
     ingredients =
     {
       { type = "item", name = "turbo-transport-belt", amount = 5 },
@@ -57,8 +105,18 @@ data:extend({
   {
     type = "technology",
     name = "turbo-transport-belt-uranium",
-    icon = "__space-age__/graphics/technology/turbo-transport-belt.png",
-    icon_size = 256,
+    icons = {
+      {
+        icon = "__space-age__/graphics/technology/turbo-transport-belt.png",
+        icon_size = 256,
+      },
+      {
+        icon = "__base__/graphics/icons/uranium-238.png",
+        icon_size = 64,
+        scale = 1,
+        shift = { 32, 32 },
+      },
+    },
     effects =
     {
       {
@@ -92,12 +150,24 @@ data:extend({
 })
 
 if mods["aai-loaders"] then
+  local loader = data.raw["loader-1x1"]["aai-turbo-loader"]
+  local icons = loader.icons or {{icon = loader.icon, icon_size = loader.icon_size}}
+  log(serpent.block(loader.icons))
+  log(serpent.block(loader.icon))
+  log(serpent.block(loader.icon_size))
+  table.insert(icons, {
+    icon = "__base__/graphics/icons/uranium-238.png",
+    icon_size = 64,
+    scale = 1 / 4,
+    shift = { 8, 8 },
+  })
   data:extend({ {
     type = "recipe",
     category = "crafting-with-fluid",
     name = "aai-turbo-loader-uranium",
     enabled = false,
     energy_required = 2,
+    icons = icons,
     ingredients =
     {
       { type = "item",  name = "aai-express-loader", amount = 1 },
@@ -115,12 +185,21 @@ if mods["aai-loaders"] then
 end
 
 if mods["deadlock-beltboxes-loaders"] then
+  local loader = data.raw["loader-1x1"]["turbo-transport-belt-loader"]
+  local icons = loader.icons or {{icon = loader.icon, icon_size = loader.icon_size}}
+  table.insert(icons, {
+    icon = "__base__/graphics/icons/uranium-238.png",
+    icon_size = 64,
+    scale = 1 / 4,
+    shift = { 8, 8 },
+  })
   data:extend({ {
     type = "recipe",
     category = "crafting-with-fluid",
     name = "turbo-transport-belt-loader-uranium",
     enabled = false,
     energy_required = 2,
+    icons = icons,
     ingredients =
     {
       { name = "express-transport-belt-loader", type = "item",  amount = 1 },
@@ -134,6 +213,14 @@ if mods["deadlock-beltboxes-loaders"] then
     recipe = "turbo-transport-belt-loader-uranium"
   })
   if data.raw.technology["deadlock-stacking-4"] then
+    local loader = data.raw["furnace"]["turbo-transport-belt-beltbox"]
+    local icons = loader.icons or {{icon = loader.icon, icon_size = loader.icon_size}}
+    table.insert(icons, {
+      icon = "__base__/graphics/icons/uranium-238.png",
+      icon_size = 64,
+      scale = 1 / 4,
+      shift = { 8, 8 },
+    })
     data:extend({ {
       type = "recipe",
       category = "crafting-with-fluid",
@@ -147,7 +234,7 @@ if mods["deadlock-beltboxes-loaders"] then
         { name = "iron-gear-wheel",                type = "item",  amount = 15 },
         { name = "lubricant",                      type = "fluid", amount = 100 },
       },
-      results = { { type = "item", name = "turbo-transport-belt-loader-uranium", amount = 1 } }
+      results = { { type = "item", name = "turbo-transport-belt-beltbox", amount = 1 } }
     } })
     table.insert(data.raw.technology["deadlock-stacking-4"].effects, {
       type = "unlock-recipe",
