@@ -95,7 +95,7 @@ if mods["aai-loaders"] then
   data:extend({ {
     type = "recipe",
     category = "crafting-with-fluid",
-    name = "turbo-transport-belt-loader-uranium",
+    name = "aai-turbo-loader-uranium",
     enabled = false,
     energy_required = 2,
     ingredients =
@@ -105,17 +105,17 @@ if mods["aai-loaders"] then
       { type = "item",  name = "processing-unit",    amount = 4 },
       { type = "fluid", name = "lubricant",          amount = 160 }
     },
-    results = { { type = "item", name = "turbo-transport-belt-loader", amount = 1 } }
+    results = { { type = "item", name = "aai-turbo-loader", amount = 1 } }
   } })
 
   table.insert(data.raw.technology["turbo-transport-belt-uranium"].effects, {
     type = "unlock-recipe",
-    recipe = "turbo-transport-belt-loader-uranium"
+    recipe = "aai-turbo-loader-uranium",
   })
 end
 
 if mods["deadlock-beltboxes-loaders"] then
-  data:extend({{
+  data:extend({ {
     type = "recipe",
     category = "crafting-with-fluid",
     name = "turbo-transport-belt-loader-uranium",
@@ -128,29 +128,30 @@ if mods["deadlock-beltboxes-loaders"] then
       { name = "lubricant",                     type = "fluid", amount = 20 },
     },
     results = { { type = "item", name = "turbo-transport-belt-loader", amount = 1 } }
-  },
-    -- {
-    --   type = "recipe",
-    --   category = "crafting-with-fluid",
-    --   name = "turbo-transport-belt-beltbox-uranium",
-    --   enabled = false,
-    --   energy_required = 2,
-    --   ingredients =
-    --   {
-    --     { name = "express-transport-belt-beltbox", type = "item",  amount = 1 },
-    --     { name = "uranium-238",                    type = "item",  amount = 15 },
-    --     { name = "iron-gear-wheel",                type = "item",  amount = 15 },
-    --     { name = "lubricant",                      type = "fluid", amount = 100 },
-    --   },
-    --   results = { { type = "item", name = "turbo-transport-belt-loader-uranium", amount = 1 } }
-    -- },
-  })
+  } })
   table.insert(data.raw.technology["turbo-transport-belt-uranium"].effects, {
     type = "unlock-recipe",
     recipe = "turbo-transport-belt-loader-uranium"
   })
-  -- table.insert(data.raw.technology["deadlock-stacking-4"].effects, {
-  --   type = "unlock-recipe",
-  --   recipe = "turbo-transport-belt-beltbox-uranium"
-  -- })
+  if data.raw.technology["deadlock-stacking-4"] then
+    data:extend({ {
+      type = "recipe",
+      category = "crafting-with-fluid",
+      name = "turbo-transport-belt-beltbox-uranium",
+      enabled = false,
+      energy_required = 2,
+      ingredients =
+      {
+        { name = "express-transport-belt-beltbox", type = "item",  amount = 1 },
+        { name = "uranium-238",                    type = "item",  amount = 15 },
+        { name = "iron-gear-wheel",                type = "item",  amount = 15 },
+        { name = "lubricant",                      type = "fluid", amount = 100 },
+      },
+      results = { { type = "item", name = "turbo-transport-belt-loader-uranium", amount = 1 } }
+    } })
+    table.insert(data.raw.technology["deadlock-stacking-4"].effects, {
+      type = "unlock-recipe",
+      recipe = "turbo-transport-belt-beltbox-uranium"
+    })
+  end
 end
