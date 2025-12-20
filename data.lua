@@ -152,9 +152,6 @@ data:extend({
 if mods["aai-loaders"] then
   local loader = data.raw["loader-1x1"]["aai-turbo-loader"]
   local icons = loader.icons or {{icon = loader.icon, icon_size = loader.icon_size}}
-  log(serpent.block(loader.icons))
-  log(serpent.block(loader.icon))
-  log(serpent.block(loader.icon_size))
   table.insert(icons, {
     icon = "__base__/graphics/icons/uranium-238.png",
     icon_size = 64,
