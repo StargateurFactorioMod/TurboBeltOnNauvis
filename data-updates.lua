@@ -24,7 +24,7 @@ end
 local words = {
   "belt",
   "underground",
-  "spliter",
+  "splitter",
   "loader",
 }
 
