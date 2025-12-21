@@ -1,5 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.0
+Date: 2025-12-21
+  Changes:
+    - Now add loader and belt dynamically, should allow more flexibility for loader mod
+---------------------------------------------------------------------------------------------------
+Version: 0.2.1
 Date: 2025-12-19
   Minor Features:
     - Change and compress thumbnail
